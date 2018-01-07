@@ -1,0 +1,38 @@
+version: '2.1'
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: dev
+      DB_USER: root
+      USER_PASSWD: dev
+    ports:
+      - '3306:3306'
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --lower_case_table_names=1
+    volumes:
+      - ./config/db/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  redis:
+    tty: true
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+    stdin_open: true
+
+  user-server:
+    build: .
+    ports:
+      - '8091:8091'
+    environment:
+      ACTIVE_PROFILE: integ
+      DB_HOST: mysql
+      SERVER_PORT: 8091
+      DB_USER: root
+      DB_PASSWORD: dev
+    depends_on:
+      - mysql
+      - redis
