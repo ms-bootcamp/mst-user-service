@@ -3,6 +3,7 @@ package com.thoughtworks.mstorderservice.configuration.security;
 import com.thoughtworks.mstorderservice.exception.InvalidCredentialException;
 import com.thoughtworks.mstorderservice.service.AuthService;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
             SecurityContextHolder.getContext().setAuthentication(token);
 
             filterChain.doFilter(request, response);
-        } catch (ExpiredJwtException | SignatureException | InvalidCredentialException e) {
+        } catch (ExpiredJwtException | SignatureException | InvalidCredentialException | MalformedJwtException e) {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token expired.");
         }
     }

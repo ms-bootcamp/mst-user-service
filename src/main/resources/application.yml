@@ -2,7 +2,7 @@ logging:
   file: mst-user-service.log
 
 server:
-  port: ${SERVER_PORT:8091}
+  port: ${SERVER_PORT:8090}
 
 spring:
   datasource:
@@ -19,7 +19,7 @@ spring:
       validation-query: SELECT 1
   redis:
     host: ${SPRING_REDIS_HOST:127.0.0.1}
-    port: 6378
+    port: 6379
     database: ${SPRING_REDIS_DATABSE:5}
     pool:
       maxActive: 500
@@ -36,7 +36,7 @@ spring:
 security:
   jwt:
     secret: ${JWT_SECRET:_SEMS_JWT_SECRET_201708240805987}
-    expiration-in-seconds: 600
+    expiration-in-seconds: 600000
 
 flyway:
   locations: db/migration

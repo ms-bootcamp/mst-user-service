@@ -26,11 +26,11 @@ services:
   user-server:
     build: .
     ports:
-      - '8091:8091'
+      - '8090:8090'
     environment:
       ACTIVE_PROFILE: integ
       DB_HOST: mysql
-      SERVER_PORT: 8091
+      SERVER_PORT: 8090
       DB_USER: root
       DB_PASSWORD: dev
     depends_on:
