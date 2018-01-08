@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MstOrderServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MstOrderServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MstOrderServiceApplication.class, args);
+    }
 }
