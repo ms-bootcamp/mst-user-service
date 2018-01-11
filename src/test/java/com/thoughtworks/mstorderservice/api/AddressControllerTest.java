@@ -25,7 +25,7 @@ class AddressControllerTest extends APIBaseTest {
         addressRepository.save(Address.builder().userId(userId).address(address1).build());
         addressRepository.save(Address.builder().userId(userId).address(address2).build());
 
-        mockMvc.perform(get("/api/address/" + userId)
+        mockMvc.perform(get("/api/addresses/" + userId)
             .contentType(MediaType.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.size()", Is.is(2)))
