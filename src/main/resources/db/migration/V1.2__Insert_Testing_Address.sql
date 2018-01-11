@@ -1,0 +1,2 @@
+INSERT INTO `t_address` (user_id, address) values ('40b2dd57ca074dc0bd757c3e36fb2ffd', '北京市朝阳区望京路8号');
+INSERT INTO `t_address` (user_id, address) values ('40b2dd57ca074dc0bd757c3e36fb2ffd', '北京市东城区东直门南大街三号');
