@@ -2,6 +2,10 @@
 set -x
 set -e
 
+export RANCHER_URL=http://10.202.129.3:8080/v2-beta/projects/1a5
+export RANCHER_ACCESS_KEY=0776A1C81D57800F4CE9
+export RANCHER_SECRET_KEY=Z2i8KcmfzeroaAy148wuPnxjyhwGxmxm3qZWsZC8
+
 if [[ -z $DOCKER_REGISRTY ]]; then
   DOCKER_REGISRTY=10.202.129.3:5000
 fi
