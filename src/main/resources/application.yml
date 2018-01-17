@@ -36,7 +36,7 @@ spring:
 security:
   jwt:
     secret: ${JWT_SECRET:_SEMS_JWT_SECRET_201708240805987}
-    expiration-in-seconds: 600000
+    expiration-in-seconds: 60000000000
 
 flyway:
   locations: db/migration
