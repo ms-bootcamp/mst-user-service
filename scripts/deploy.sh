@@ -11,4 +11,6 @@ if [[ -z $DOCKER_REGISRTY ]]; then
 fi
 IMAGE_NAME=${DOCKER_REGISRTY}/tw-ms-train/user-service:${GO_PIPELINE_COUNTER}
 
-docker run -d -p 8080:8080 $IMAGE_NAME
+sed -i "s#<IMAGE_NAME>#$IMAGE_NAME#g" docker-compose.yml
+
+rancher-compose -p mst-user-service up -d -c --upgrade

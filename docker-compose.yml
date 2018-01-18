@@ -1,38 +1,10 @@
-version: '2.1'
-
+version: '2'
 services:
-  mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: dev
-      DB_USER: root
-      USER_PASSWD: dev
-    ports:
-      - '3306:3306'
-    command:
-      - --character-set-server=utf8mb4
-      - --collation-server=utf8mb4_unicode_ci
-      - --lower_case_table_names=1
-    volumes:
-      - ./config/db/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-
-  redis:
-    tty: true
-    image: redis:alpine
-    ports:
-      - '6379:6379'
+  mst-user-service:
     stdin_open: true
-
-  user-server:
-    build: .
-    ports:
-      - '8090:8090'
+    tty: true
+    expose:
+     - "8080"
     environment:
-      ACTIVE_PROFILE: integ
-      DB_HOST: mysql
-      SERVER_PORT: 8090
-      DB_USER: root
-      DB_PASSWORD: dev
-    depends_on:
-      - mysql
-      - redis
+        SPRING_PROFILES_ACTIVE: qa
+    image: <IMAGE_NAME>
