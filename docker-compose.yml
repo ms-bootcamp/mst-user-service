@@ -8,3 +8,9 @@ services:
     environment:
         SPRING_PROFILES_ACTIVE: qa
     image: <IMAGE_NAME>
+  redis:
+    tty: true
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+    stdin_open: true

@@ -3,3 +3,13 @@ spring:
     active: ${ACTIVE_PROFILE:local}
   application:
     name: mst-user-service
+  cloud:
+    consul:
+      enabled: true
+      hostname: localhost
+      port: 8500
+      ribbon:
+        enabled: true
+      discovery:
+        enabled: true
+        register: true
