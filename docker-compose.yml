@@ -8,5 +8,6 @@ services:
     environment:
         SPRING_PROFILES_ACTIVE: qa
         DB_HOST: 10.202.129.3
+        CONSUL_HOST: 10.202.129.3
         SPRING_REDIS_HOST: 10.202.129.3
     image: <IMAGE_NAME>
