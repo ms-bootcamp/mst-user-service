@@ -4,9 +4,11 @@ spring:
   application:
     name: mst-user-service
   cloud:
+    config:
+      uri: ${CONFIG_SERVER_URI:http://localhost:9999}
     consul:
       enabled: true
-      hostname: localhost
+      host: ${CONSUL_HOST:127.0.0.1}
       port: 8500
       ribbon:
         enabled: true
