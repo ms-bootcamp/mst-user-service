@@ -13,3 +13,12 @@ spring:
       discovery:
         enabled: true
         register: true
+    config:
+#      uri: http://127.0.0.1:6677
+      discovery:
+        enabled: true
+        serviceId: application
+
+management:
+  security:
+    enabled: false
