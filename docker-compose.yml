@@ -7,10 +7,7 @@ services:
      - "8080"
     environment:
         SPRING_PROFILES_ACTIVE: qa
+        DB_HOST: 10.202.129.3
+        CONSUL_HOST: 10.202.129.3
+        SPRING_REDIS_HOST: 10.202.129.3
     image: <IMAGE_NAME>
-  redis:
-    tty: true
-    image: redis:alpine
-    ports:
-      - '6379:6379'
-    stdin_open: true
