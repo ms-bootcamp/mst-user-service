@@ -5,8 +5,6 @@ services:
     tty: true
     expose:
      - "8090"
-    ports:
-     - "8090:8090"
     environment:
         SPRING_PROFILES_ACTIVE: qa
         DB_HOST: 10.202.129.3
